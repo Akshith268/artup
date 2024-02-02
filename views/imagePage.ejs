@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Uploading</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        button a {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <hr />
+    <div>
+        <form action="/imagePage" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="name">Image Title</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Name"
+                    value=""
+                    name="name"
+                    required
+                />
+            </div>
+            <div>
+                <label for="desc">Image Description</label>
+                <textarea
+                    id="desc"
+                    name="desc"
+                    value=""
+                    rows="2"
+                    placeholder="Description"
+                    required
+                ></textarea>
+            </div>
+            <div>
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" name="image" value="" required />
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <button><a href="/viewPage">Explore</a></button>
+    <hr />
+</body>
+</html>

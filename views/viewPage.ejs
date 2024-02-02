@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-card {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .image-details {
+            margin-top: 10px;
+        }
+
+        h5 {
+            margin: 5px 0;
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #3498db;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uploaded Images</h1> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Button><a href="/imagePage">Upload Posts</a></Button>
+    <div class="image-container">
+        <% items.forEach(function(image) { %>
+            <div class="image-card">
+                <img src="data:image/<%=image.img.contentType%>;base64,
+                            <%=image.img.data.toString('base64')%>" />
+                <div class="image-details">
+                    <h5><%= image.name %></h5>
+                    <h5><%= image.desc %></h5>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
