@@ -139,6 +139,11 @@ app.post('/signup', (req, res) => {
 
 
 
+app.get('/options', (req, res) => {
+	res.render('options');
+});
+
+
 var port = process.env.PORT || '3000'
 app.listen(port, err => {
 	if (err)
