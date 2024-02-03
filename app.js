@@ -84,6 +84,28 @@ app.get('/viewPage', (req, res) => {
 	})
 });
 
+app.post('/deleteimage',async (req,res)=>{
+	imagename = req.body.imageId;
+	  try{
+		await imgSchema.findByIdAndDelete(imagename);
+		res.redirect('/viewPage');
+	  }
+	  catch(err){
+		console.log(err);
+		res.status(500).send("Internal Server Error");
+
+	  }
+});
+
+app.get('/allposts', (req, res) => {
+	imgSchema.find({})
+	.then((data, err)=>{
+		if(err){
+			console.log(err);
+		}
+		res.render('allposts',{items: data})
+	})
+});
 
 app.get('/', (req, res) => {
 	res.render('home');
@@ -105,7 +127,7 @@ app.post('/login', async (req, res) => {
         });
 
         if (validUser) {
-            res.redirect('/viewPage');
+            res.redirect('/allposts');
         } else {
             res.send("Invalid credentials");
         }
